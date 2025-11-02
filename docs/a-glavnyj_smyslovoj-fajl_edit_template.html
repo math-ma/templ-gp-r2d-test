@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -173,6 +208,135 @@ X_1,\ldots,X_m,\ldots
 Y_1,\ldots,Y_m,\ldots
 \]</span> отвечающих распределению <span class="math inline">\(\text{Gamma}\left(10, 2\right)\)</span>. Ответ обоснуйте.</p>
 <hr>
+</section>
+</section>
+<section id="includes-эксперименты" class="level1">
+<h1>includes эксперименты</h1>
+<p>Пример ниже оказался достаточно крутым, так как первый инклуд вставился буквально, а второй вставился как копи-паст</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>{{<span class="dt">&lt;</span><span class="kw">include</span><span class="ot">  _index-mp24-p2.qmd</span><span class="dt">&gt;</span>}}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sdsa</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sdsa</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>sd</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>ssd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">()</h2>
+<p>ИНТЕРЕСНО, что html-файл при этом создается один общий. То, что в include вставляется в объединенный html-файл</p>
+<hr>
+<p>ВАЖНО ,</p>
+<ul>
+<li><p>чтобы вставляемые файлы рендерились верно в автономном прогоне, иначе потом ошибку искать долго</p></li>
+<li><p>чтобы избежать такого<br>
+<code>ERROR: YAMLException: expected a single document in the stream, but found more</code><br>
+не нужно допускать двух строк подряд вида<br>
+</p></li>
+</ul>
+<pre><code>---
+---</code></pre>
+<ul>
+<li><p>вставляемый файл лучше называть так <code>_file.qmd</code><br>
+Note that we use an underscore (_) prefix for the included files. You should always use an underscore prefix with included files so that they are automatically ignored (i.e.&nbsp;not treated as standalone files) by a quarto render of a project.</p></li>
+<li><p>если все же в папке есть несколько “не underscore-named” файлов, то на каждый создается html, но в index.html прописывается перенаправление только на первый по алфавиту файл (?) и то без гарантии</p></li>
+</ul>
+<hr>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">()</h2>
+<p>Из <code>_index-mp24-p2.qmd</code> сделан такой файл <code>_file-to-include_nohtml-output_index-mp24-p2.qmd</code> .</p>
+<p>Ниже - <em>стандартный include</em> этого файла.</p>
+<p>. . .</p>
+<p><em>Вставляем короткий файл</em></p>
+<hr>
+<p>на 4 октября опубликовано …</p>
+</section>
+<section id="задачи-1-10" class="level2">
+<h2 class="anchored" data-anchor-id="задачи-1-10">Задачи 1-10</h2>
+<hr>
+<section id="задача-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="задача-1-1">Задача 1</h3>
+<p>​ Показать, что плотность <span class="math inline">\(\text{Gamma}(n, \alpha)\)</span> имеет вид <span class="math display">\[
+p_{\xi}(x)=\left\{\begin{array}{l}
+\frac{\alpha^{n} x^{n-1}}{(n-1)!} \;  e^{-\alpha x},  \quad x\geq 0\\
+0, \quad x&lt;0 \, .
+\end{array}\right.
+\]</span></p>
+<p>​ Требуется аналитическое решение.</p>
+<ul>
+<li>Написать определение гамма-функции Эйлера <span class="math inline">\(\Gamma(t)\)</span>. При каких значениях аргумента она определена?</li>
+</ul>
+<hr>
+</section>
+<section id="задача-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="задача-2-1">Задача 2</h3>
+<p>Построить графики плотности распределения <span class="math inline">\(\text{Gamma}\left(n, \alpha\right)\)</span>, при разных значениях параметров <span class="math inline">\((n,\alpha)\in\mathbb{N}\times (0,+\infty)\)</span>.</p>
+<p>Например, фиксируем <span class="math inline">\(\alpha\)</span> и строим серию графиков для различных <span class="math inline">\(n\)</span>.</p>
+<p>И наоборот, фиксируем <span class="math inline">\(n\)</span> и строим серию графиков для различных <span class="math inline">\(\alpha\)</span> .</p>
+<hr>
+</section>
+<section id="задача-5" class="level3">
+<h3 class="anchored" data-anchor-id="задача-5">Задача 5</h3>
+<p>Рассматривается случайная величина <span class="math display">\[
+\xi=\sum_{j=1}^{12} U_j-6,
+\]</span> где <span class="math inline">\(U_j,\quad  j=1, \ldots, 12,\)</span> - независимые случайные величины, распределенные равномерно на отрезке <span class="math inline">\([0,1]\)</span>.</p>
+<p><em>Конец короткого файла</em></p>
+<hr>
+<p>. . .</p>
+<hr>
+</section>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">()</h2>
+<p><strong>Ниже - <em>include nounderscore</em></strong> , а точнее, <code>nounderscore_name.qmd</code></p>
+<p>. . .</p>
+<p><em>Вставляем короткий файл</em></p>
+<hr>
+<p>на 4 октября опубликовано …</p>
+</section>
+<section id="задачи-1-10-1" class="level2">
+<h2 class="anchored" data-anchor-id="задачи-1-10-1">Задачи 1-10</h2>
+<hr>
+<section id="задача-1-2" class="level3">
+<h3 class="anchored" data-anchor-id="задача-1-2">Задача 1</h3>
+<p>​ Показать, что плотность <span class="math inline">\(\text{Gamma}(n, \alpha)\)</span> имеет вид <span class="math display">\[
+p_{\xi}(x)=\left\{\begin{array}{l}
+\frac{\alpha^{n} x^{n-1}}{(n-1)!} \;  e^{-\alpha x},  \quad x\geq 0\\
+0, \quad x&lt;0 \, .
+\end{array}\right.
+\]</span></p>
+<p>​ Требуется аналитическое решение.</p>
+<ul>
+<li>Написать определение гамма-функции Эйлера <span class="math inline">\(\Gamma(t)\)</span>. При каких значениях аргумента она определена?</li>
+</ul>
+<hr>
+</section>
+<section id="задача-2-2" class="level3">
+<h3 class="anchored" data-anchor-id="задача-2-2">Задача 2</h3>
+<p>Построить графики плотности распределения <span class="math inline">\(\text{Gamma}\left(n, \alpha\right)\)</span>, при разных значениях параметров <span class="math inline">\((n,\alpha)\in\mathbb{N}\times (0,+\infty)\)</span>.</p>
+<p>Например, фиксируем <span class="math inline">\(\alpha\)</span> и строим серию графиков для различных <span class="math inline">\(n\)</span>.</p>
+<p>И наоборот, фиксируем <span class="math inline">\(n\)</span> и строим серию графиков для различных <span class="math inline">\(\alpha\)</span> .</p>
+<hr>
+</section>
+<section id="задача-5-1" class="level3">
+<h3 class="anchored" data-anchor-id="задача-5-1">Задача 5</h3>
+<p>Рассматривается случайная величина <span class="math display">\[
+\xi=\sum_{j=1}^{12} U_j-6,
+\]</span> где <span class="math inline">\(U_j,\quad  j=1, \ldots, 12,\)</span> - независимые случайные величины, распределенные равномерно на отрезке <span class="math inline">\([0,1]\)</span>.</p>
+<p><em>Конец короткого файла</em></p>
+<hr>
+<p>. . .</p>
+<hr>
+</section>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">()</h2>
+<p>заключительная линия исходного файла</p>
 
 
 </section>
