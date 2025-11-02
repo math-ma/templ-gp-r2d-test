@@ -1,0 +1,26 @@
+---
+title: "Острова Острова Острова Острова Архипелаг Острова" # Острова Острова Острова Острова Архипелаг ОстроваОстрова Острова Острова Острова Архипелаг ОстроваОстрова Острова Острова Острова Архипелаг Острова"
+author: "А М"
+date: "2012-01-02"
+categories: [примеры, цепи Маркова, code, analysis]
+# bibliography: literat.bib
+---
+
+
+# Описание
+
+MD    
+
+Пример заимствован из книги ...
+
+чтобы вставить как ссылку
+
+
+
+<!---
+This is the first post in a Quarto blog. Welcome!
+
+![](thumbnail.jpg)
+
+Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+-->

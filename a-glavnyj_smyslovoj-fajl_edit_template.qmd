@@ -1,0 +1,166 @@
+---
+title: " Задачи 1-2 - Gamma распределение I"
+# author: " "
+# date: "2025-08-21"
+categories: [инд. задания]
+image: ""
+#listing:
+#  contents: 
+#    - "*.qmd"  # Include only Quarto Markdown documents
+#    - "images/*.png" # Include specific image files
+---
+
+
+
+
+## Gamma распределение - вводные задачи
+
+
+[ostrova-2-link  ку-эм-дэ](ostrova-2-link.qmd)
+
+
+[ostrova-2-link __  эм-дэ](ostrova-2-link_md.md)
+
+---
+
+### Задача 1
+
+Гамма-распределение $\text{Gamma}\left(n, \alpha\right)$  с параметрами $n\in\mathbb{N}$, $\alpha>0$, по определению есть распределение с.в. $\xi$, представимой в виде
+
+$$
+\xi=\eta_{1}+\cdots+\eta_{n} \quad \text {где } \eta_{1}, \ldots,  \eta_{n} 
+\text {  - независимые  Exp($\alpha$) с.в-ны }
+$$
+
+a )	 Показать, что плотность  $\text{Gamma}(n, \alpha)$ имеет вид
+
+$$
+ p_{\xi}(x)=\left\{\begin{array}{l}
+\frac{\alpha^{n} x^{n-1}}{(n-1)!} \;  e^{-\alpha x},  \quad x\geq 0\\
+0, \quad x<0 \, .
+\end{array}\right.
+$$
+
+​	Требуется аналитическое решение.
+
+б )	Написать определение гамма-функции Эйлера $\Gamma(t)$. При каких значениях аргумента она определена?
+
+в )	Выясните, какой командой вызывается  $\Gamma(t)$ в компьютерном пакете, который Вы предпочитаете. Как вычислять её значения в `Google Sheets` ?
+
+---
+
+
+
+### Задача 2
+
+а) 	Построить графики плотности распределения $\text{Gamma}\left(n, \alpha\right)$, 
+$$
+\begin{aligned}
+& p_{\xi}(x)=\left\{\begin{array}{l}
+\frac{\alpha^{n} x^{n-1}}{(n-1)!} \;  e^{-\alpha x},  \quad x\geq 0\\
+0, \quad x<0 \, .
+\end{array}\right.
+\end{aligned}
+$$
+
+при разных значениях параметров  $(n,\alpha)\in\mathbb{N}\times (0,+\infty)$.
+
+Например, фиксируем $\alpha$ и строим серию графиков для различных $n$. 
+
+И наоборот, фиксируем  $n$ и строим серию графиков для различных  $\alpha$ . 
+
+б)	Предположим, у нас есть программный код, предоставляющий генератор псевдослучайных чисел (ПСЧ) 
+$$
+X_1,\ldots,X_m,\ldots
+$$
+отвечающих распределению   $\text{Gamma}\left(5, 1\right)$​.  Придумайте наиболее простой способ получения ПСЧ 
+$$
+Y_1,\ldots,Y_m,\ldots
+$$
+отвечающих распределению   $\text{Gamma}\left(10, 2\right)$.  Ответ обоснуйте.
+
+---
+
+
+
+#  includes эксперименты
+
+
+## 	Пробелы имеют значение ?
+
+
+Пример ниже оказался достаточно крутым,
+так как
+
+*	первый инклуд  вставился буквально 
+(нет пробела между скобками и словом `{{` `< `include ...)
+
+* 	а второй вставился как копи-паст
+(есть пробел между   `< ` и  словом include ...)
+
+```md
+{{<include  _index-mp24-p2.qmd>}}
+{{< include _inserted_as_code_md.qmd >}}
+{{<include _inserted_as_code_md.qmd   >}}
+```
+
+
+
+---
+
+## ()
+
+ИНТЕРЕСНО, что html-файл при этом создается один общий. То, что в include вставляется в объединенный html-файл
+
+---
+
+ВАЖНО ,
+
+*  
+чтобы вставляемые файлы рендерились верно в автономном прогоне, иначе потом ошибку искать долго
+
+
+*   чтобы избежать такого     
+`ERROR: YAMLException: expected a single document in the stream, but found more`    
+не нужно допускать двух строк подряд вида      
+```
+---
+---
+```
+
+*  вставляемый файл лучше называть так `_file.qmd`     
+Note that we use an underscore (_) prefix for the included files. You should always use an underscore prefix with included files so that they are automatically ignored (i.e. not treated as standalone files) by a quarto render of a project.
+
+*  если все же в папке есть несколько "не underscore-named" файлов, то на каждый создается html, но в index.html
+прописывается перенаправление только на первый по алфавиту файл (?)  и то без гарантии
+
+
+---
+
+## ()
+
+Из `_index-mp24-p2.qmd` сделан такой файл `_file-to-include_nohtml-output_index-mp24-p2.qmd` .
+
+Ниже - _стандартный include_  этого файла. 
+
+{{< include _file-to-include_nohtml-output_index-mp24-p2.qmd >}}
+
+
+
+---
+
+## ()
+
+**Ниже - _include nounderscore_** , а точнее, `nounderscore_name.qmd`
+
+
+{{< include nounderscore_name.qmd >}} 
+
+
+
+---
+
+## ()
+
+заключительная линия исходного файла
+
