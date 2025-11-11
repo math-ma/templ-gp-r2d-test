@@ -1,0 +1,8 @@
+
+Win + R
+
+cd d:\a\quarto\templates-my-github\templ-gp-r2d-test\
+
+
+ quarto.cmd render
+

@@ -1,0 +1,23 @@
+ cd /d/a/quarto/templates-my-github/2post_tuned-gp_r2d
+
+
+
+ cd /d/a/quarto/templates-my-github/templ-gp-r2d-test
+
+
+git status
+
+git add docs
+
+git commit -m " jhcshj "
+
+git push
+
+
+больше
+
+cat ~/.bash_history
+
+и
+
+https://math-ma.github.io/test-1st-pub/ru_GitHub_Cheatsheets__SHpargalka_po_Git_ot_GitHub__saved.html

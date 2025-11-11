@@ -1,9 +1,18 @@
 # templ-gp-r2d-test
+
 quarto gp render to docs  (template ?)
 
+особенности
 
++  фактически один документ - структура простая
+
++  include, git , docs
 
 ---
+docs 
+
+git - вместе с исходниками
+
 
 `.gitignore`
 `.nojekyll`
@@ -20,16 +29,20 @@ html  автоматом не создается
 
 `_inserted_as_code_md.qmd`
 `_quarto.yml`
+
+
 `nounderscore_name.qmd`	- вставляется через includе  стандартно.     
 html  создается - НЕ рекомендуется
 
 
 
 `ostrova-2-link.qmd`
-`ostrova-2-link_md.md`	- вставляются как ссылки на внешний html
+`ostrova-2-link_md.md`	- вставляются как ссылки на внешний html .
+
 Почему не путается с основным файлом ? Загадка !
 В алфавитном порядке ?
 
 
 
 `README.md`
+
